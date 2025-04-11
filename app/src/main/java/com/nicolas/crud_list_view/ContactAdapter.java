@@ -15,10 +15,11 @@ import java.util.List;
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
     private List<Contact> contacts;
+    private DatabaseManager databaseManager;
 
-    public ContactAdapter(List<Contact> contatos) {
+    public ContactAdapter(List<Contact> contatos, DatabaseManager databaseManager) {
         this.contacts = contatos;
-
+        this.databaseManager = databaseManager;
     }
 
     @NonNull
@@ -37,6 +38,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.phoneText.setText(contact.getPhone());
 
         holder.deleteButton.setOnClickListener(v -> {
+
+            Contact contactToRemove = contacts.get(position);
+            databaseManager.deleteContactByName(contactToRemove.getName());
+
             contacts.remove(position);
             notifyItemRemoved(position);
             notifyItemRangeChanged(position, contacts.size());

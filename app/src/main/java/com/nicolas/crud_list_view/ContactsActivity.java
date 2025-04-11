@@ -22,7 +22,7 @@ public class ContactsActivity extends AppCompatActivity {
         List<Contact> contacts = databaseManager.getAllContacts();
 
         recyclerView = findViewById(R.id.recycler_view);
-        ContactAdapter adapter = new ContactAdapter(contacts);
+        ContactAdapter adapter = new ContactAdapter(contacts, databaseManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
