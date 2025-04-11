@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">crud-list-view</string>
+    <string name="name">Nome</string>
+    <string name="phone">Número de telefone</string>
+    <string name="add">Adicionar</string>
+    <string name="contacts">Contatos</string>
+    <string name="delete">Remover</string>
+    <string name="deleteAll">Remover todos</string>
+
+</resources>
